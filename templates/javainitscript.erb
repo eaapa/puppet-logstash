@@ -75,7 +75,7 @@ function startServiceProcess {
    rm -f $pidFile
    makeFileWritable $pidFile || return 1
    makeFileWritable $serviceLogFile || return 1
-   cmd="nohup $javaCommandLine >>$serviceLogFile 2>&1 & echo \$! >$pidFile"
+   cmd="export HOME=$serviceUserHome & nohup $javaCommandLine >>$serviceLogFile 2>&1 & echo \$! >$pidFile"
    su -m $serviceUser -s $SHELL -c "$cmd" || return 1
    sleep 0.1
    pid="$(<$pidFile)"
