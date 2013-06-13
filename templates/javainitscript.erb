@@ -67,7 +67,8 @@ function getServicePID {
    if [ ! -f $pidFile ]; then return 1; fi
    pid="$(<$pidFile)"
    checkProcessIsRunning $pid || return 1
-   checkProcessIsOurService $pid || return 1
+ #Caused everytime return 1, disabled temporarly:
+   # checkProcessIsOurService $pid || return 1
    return 0; }
  
 function startServiceProcess {
