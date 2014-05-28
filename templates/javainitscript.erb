@@ -26,16 +26,16 @@ serviceNameLo="<%= @servicename.downcase %>"	     # service name with the first 
 serviceName="<%= @servicename %>"                     # service name
 serviceUser="<%= @serviceuser %>"                     # OS user name for the service
 serviceGroup="<%= @servicegroup %>"                   # OS group name for the service
-applDir="<%=@ servicehome %>"                          # home directory of the service application
-serviceUserHome="<%=@ serviceuserhome %>"               # home directory of the service user
-serviceLogFile="<%=@ servicelogfile%>"                 # log file for StdOut/StdErr
+applDir="<%= @servicehome %>"                          # home directory of the service application
+serviceUserHome="<%= @serviceuserhome %>"               # home directory of the service user
+serviceLogFile="<%= @servicelogfile %>"                 # log file for StdOut/StdErr
 maxShutdownTime=15                                   # maximum number of seconds to wait for the daemon to terminate normally
-pidFile="/var/run/<%=@ servicename.downcase %>.pid"     # name of PID file (PID = process ID number)
+pidFile="/var/run/<%= @servicename.downcase %>.pid"     # name of PID file (PID = process ID number)
 javaCommand="java"                                   # name of the Java launcher without the path
 javaExe="$JAVA_HOME/bin/$javaCommand"                # file name of the Java application launcher executable
-javaArgs="-jar <%=@ servicejar %> <%=@ serviceargs %>"      # arguments for Java launcher
+javaArgs="-jar <%= @servicejar %> <%= @serviceargs %>"      # arguments for Java launcher
 javaCommandLine="$javaExe $javaArgs"                 # command line to start the Java service application
-javaCommandLineKeyword="<%=@ servicejar %>"             # a keyword that occurs on the commandline, used to detect an already 
+javaCommandLineKeyword="<%= @servicejar %>"             # a keyword that occurs on the commandline, used to detect an already 
 						     # running service process and to distinguish it from others
 
  
